@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -55,10 +55,10 @@
         <form id="recipe-form">
             <label for="recipe-category">Category:</label>
             <select id="recipe-category">
-                <option value="breakfast">Breakfast</option>
-                <option value="lunch">Lunch</option>
-                <option value="dinner">Dinner</option>
-                <option value="dessert">Dessert</option>
+                <option value="Breakfast">Breakfast</option>
+                <option value="Lunch">Lunch</option>
+                <option value="Dinner">Dinner</option>
+                <option value="Dessert">Dessert</option>
             </select>
 
             <label for="recipe-name">Recipe Name:</label>
@@ -99,7 +99,7 @@
     <div data-role="content" data-theme="c">
 
         <h2>Recipe List</h2>
-        <ul data-role="listview" id="recipe-list"></ul>
+        <ul data-role="listview" id="recipe-list" data-inset="true"></ul>
     </div>
 
     <div data-role="footer" data-theme="b">
