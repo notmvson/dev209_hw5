@@ -1,0 +1,10 @@
+[data-role="page"] {
+    position: relative;
+    min-height: 100%;
+}
+
+[data-role="footer"] {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

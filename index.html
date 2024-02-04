@@ -11,6 +11,8 @@
 
     <script src="main.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="site.css">
+
     <title>Recipe Manager</title>
 </head>
 
@@ -18,7 +20,7 @@
 
 <div data-role="page" id="home"> <!-- Page 1 ------------------------------> 
 
-    <div data-role="header" data-theme="e">
+    <div data-role="header" data-theme="b">
         <h1>Home Page</h1>
     </div>
 
@@ -37,9 +39,9 @@
 
 <div data-role="page" id="add-recipe"> <!-- Page 2 ------------------------> 
     
-    <div data-role="header" data-theme="e">
+    <div data-role="header" data-theme="b">
 
-        <div data-role="navbar" data-theme='e'>
+        <div data-role="navbar" data-theme="b">
             <ul>
             <li><a href="#home" data-transition="pop" >Home Page</a></li>
             <li><a href="#view-recipes" data-transition="slide" >View Recipes</a></li>
@@ -49,7 +51,7 @@
         <h1>Add Recipe</h1>
     </div>
 
-    <div data-role="content" data-theme="d">
+    <div data-role="content" data-theme="a">
 
         <h2>Add New Recipe</h2>
         <form id="recipe-form">
@@ -84,7 +86,7 @@
 
 <div data-role="page" id="view-recipes"> <!-- Page 3 ----------------------> 
     
-    <div data-role="header" data-theme="e">
+    <div data-role="header" data-theme="b">
 
         <div data-role="navbar" data-theme='e'>
             <ul>
@@ -97,7 +99,6 @@
     </div>
 
     <div data-role="content" data-theme="c">
-
         <h2>Recipe List</h2>
         <ul data-role="listview" id="recipe-list" data-inset="true"></ul>
     </div>

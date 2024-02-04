@@ -1,3 +1,5 @@
+//code runs immediately
+
 let RecipeArray = [];
 
 let RecipeObject = function (pCategory, pName, pTime, pIngredients, pInstructions) {
@@ -12,10 +14,9 @@ RecipeArray.push ( new RecipeObject("Breakfast", "Cereal", "3 min", "Cereal and 
 RecipeArray.push ( new RecipeObject("Lunch", "Rice w/ egg", "10 min", "Rice, Egg(s), Soy Sauce", "Cook rice, fry egg(s), pour soy sauce on top",)  );
 RecipeArray.push ( new RecipeObject("Breakfast", "PB&J", "5 min", "Bread, Peanut Butter, Jelly", "Spread peanut butter on one side of both pieces of bread, spread jelly on top of the peanut butter, put the bread together w pb&j facing inwards")  );
 
-// code runs immediately
-//================================================================
-
+//==========================================================================
 // runs  when dom is loaded
+
 $(document).on("pageinit", "#add-recipe", function() {
     createList();
 
@@ -41,29 +42,30 @@ $(document).on("pageinit", "#view-recipes", function() {
     displayRecipes();
 });
 
-
-
-//======================================
+//==========================================================================
 // function defintions
+
 function createList() {
-    // clear prior data
+    
     var myul = document.getElementById("recipe-list");
     myul.innerHTML = "";
 
-    RecipeArray.forEach(function (element,) {   // use handy array forEach method
+    RecipeArray.forEach(function (element,) {  
         var li = document.createElement('li');
-          // added data-role="listview" to the ul in the html
+          
         li.innerHTML = "<b>" + element.name + " [" + element.category + "] (" + element.time + ") </b><br> Ingredients: " + element.ingredients + " <br> Instructions: " + element.instructions;
         myul.appendChild(li);
     });
 };
 
 function displayRecipes() {
+
     var myul = document.getElementById("recipe-list");
     myul.innerHTML = "";
 
     RecipeArray.forEach(function(element) {
         var li = document.createElement('li');
+
         li.innerHTML = "<b>" + element.name + " [" + element.category + "] (" + element.time + ") </b><br> <i>Ingredients:</i> " + element.ingredients + " <br> <i>Instructions:</i> " + element.instructions;
         myul.appendChild(li);
     });
