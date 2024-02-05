@@ -42,7 +42,7 @@ function createList() {
     myul.empty();
 
     RecipeArray.forEach(function(element, index) {
-        var li = $("<li>").html("<b>" + element.name + " [" + element.category + "] (" + element.time + ") </b><br> Ingredients: " + element.ingredients + " <br> Instructions: " + element.instructions);
+        var li = $("<li>").html("<b>" + element.name + " [" + element.category + "] (" + element.time + ") </b><br> <i>Ingredients:</i> " + element.ingredients + " <br> <i>Instructions:</i> " + element.instructions);
         var deleteButton = $("<button>").text("Delete").addClass("delete-button").data("index", index);
         li.append(deleteButton);
         myul.append(li);
