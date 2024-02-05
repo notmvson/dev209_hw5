@@ -1,8 +1,6 @@
-//code runs immediately
-
 let RecipeArray = [];
 
-let RecipeObject = function (pCategory, pName, pTime, pIngredients, pInstructions) {
+let RecipeObject = function(pCategory, pName, pTime, pIngredients, pInstructions) {
     this.category = pCategory;
     this.name = pName;
     this.time = pTime;
@@ -10,12 +8,9 @@ let RecipeObject = function (pCategory, pName, pTime, pIngredients, pInstruction
     this.instructions = pInstructions;
 }
 
-RecipeArray.push ( new RecipeObject("Breakfast", "Cereal", "3 min", "Cereal and Milk", "Pour cereal into a bowl followed by milk")  );
-RecipeArray.push ( new RecipeObject("Lunch", "Rice w/ egg", "10 min", "Rice, Egg(s), Soy Sauce", "Cook rice, fry egg(s), pour soy sauce on top",)  );
-RecipeArray.push ( new RecipeObject("Breakfast", "PB&J", "5 min", "Bread, Peanut Butter, Jelly", "Spread peanut butter on one side of both pieces of bread, spread jelly on top of the peanut butter, put the bread together w pb&j facing inwards")  );
-
-//==========================================================================
-// runs  when dom is loaded
+RecipeArray.push(new RecipeObject("Breakfast", "Cereal", "3 min", "Cereal and Milk", "Pour cereal into a bowl followed by milk"));
+RecipeArray.push(new RecipeObject("Lunch", "Rice w/ egg", "10 min", "Rice, Egg(s), Soy Sauce", "Cook rice, fry egg(s), pour soy sauce on top"));
+RecipeArray.push(new RecipeObject("Breakfast", "PB&J", "5 min", "Bread, Peanut Butter, Jelly", "Spread peanut butter on one side of both pieces of bread, spread jelly on top of the peanut butter, put the bread together w pb&j facing inwards"));
 
 $(document).on("pageinit", "#add-recipe", function() {
     createList();
@@ -39,34 +34,24 @@ $(document).on("pageinit", "#add-recipe", function() {
 });
 
 $(document).on("pageinit", "#view-recipes", function() {
-    displayRecipes();
+    createList(); // Update the recipe list on pageinit
 });
 
-//==========================================================================
-// function defintions
-
 function createList() {
-    
-    var myul = document.getElementById("recipe-list");
-    myul.innerHTML = "";
+    var myul = $("#recipe-list");
+    myul.empty();
 
-    RecipeArray.forEach(function (element,) {  
-        var li = document.createElement('li');
-          
-        li.innerHTML = "<b>" + element.name + " [" + element.category + "] (" + element.time + ") </b><br> Ingredients: " + element.ingredients + " <br> Instructions: " + element.instructions;
-        myul.appendChild(li);
+    RecipeArray.forEach(function(element, index) {
+        var li = $("<li>").html("<b>" + element.name + " [" + element.category + "] (" + element.time + ") </b><br> Ingredients: " + element.ingredients + " <br> Instructions: " + element.instructions);
+        var deleteButton = $("<button>").text("Delete").addClass("delete-button").data("index", index);
+        li.append(deleteButton);
+        myul.append(li);
     });
-};
 
-function displayRecipes() {
-
-    var myul = document.getElementById("recipe-list");
-    myul.innerHTML = "";
-
-    RecipeArray.forEach(function(element) {
-        var li = document.createElement('li');
-
-        li.innerHTML = "<b>" + element.name + " [" + element.category + "] (" + element.time + ") </b><br> <i>Ingredients:</i> " + element.ingredients + " <br> <i>Instructions:</i> " + element.instructions;
-        myul.appendChild(li);
+    //delete buttons
+    $(".delete-button").on("click", function() {
+        var indexToRemove = $(this).data("index");
+        RecipeArray.splice(indexToRemove, 1); // Remove the recipe at the specified index
+        createList();
     });
 }
