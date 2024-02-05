@@ -8,3 +8,17 @@
     bottom: 0;
     width: 100%;
 }
+
+.delete-button {
+    background-color: #bebebe;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delete-button:hover {
+    background-color: #bebebe;
+}
