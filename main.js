@@ -12,7 +12,7 @@ RecipeArray.push(new RecipeObject("Breakfast", "Cereal", "3 min", "Cereal and Mi
 RecipeArray.push(new RecipeObject("Lunch", "Rice w/ egg", "10 min", "Rice, Egg(s), Soy Sauce", "Cook rice, fry egg(s), pour soy sauce on top"));
 RecipeArray.push(new RecipeObject("Breakfast", "PB&J", "5 min", "Bread, Peanut Butter, Jelly", "Spread peanut butter on one side of both pieces of bread, spread jelly on top of the peanut butter, put the bread together w pb&j facing inwards"));
 
-$(document).on("pageinit", "#add-recipe", function() {
+$(document).on("pagebeforeshow", "#add-recipe", function() {
     createList();
 
     $("#buttonAdd").on("click", function() {
@@ -22,7 +22,7 @@ $(document).on("pageinit", "#add-recipe", function() {
         const ingredients = $("#recipe-ingredients").val();
         const instructions = $("#recipe-instructions").val();
 
-        if (name && time && ingredients && instructions) {
+        if (category && name && time && ingredients && instructions) {
             RecipeArray.push(new RecipeObject(category, name, time, ingredients, instructions));
 
             $("#recipe-category, #recipe-name, #recipe-time, #recipe-ingredients, #recipe-instructions").val("");
@@ -33,7 +33,7 @@ $(document).on("pageinit", "#add-recipe", function() {
     });
 });
 
-$(document).on("pageinit", "#view-recipes", function() {
+$(document).on("pagebeforeshow", "#view-recipes", function() {
     createList(); // Update the recipe list on pageinit
 });
 
@@ -43,6 +43,7 @@ function createList() {
 
     RecipeArray.forEach(function(element, index) {
         var li = $("<li>").html("<b>" + element.name + " [" + element.category + "] (" + element.time + ") </b><br> <i>Ingredients:</i> " + element.ingredients + " <br> <i>Instructions:</i> " + element.instructions);
+        li.classList.add("recipes")
         var deleteButton = $("<button>").text("Delete").addClass("delete-button").data("index", index);
         li.append(deleteButton);
         myul.append(li);
