@@ -35,6 +35,28 @@ $(document).on("pagebeforeshow", "#add-recipe", function() {
 
 $(document).on("pagebeforeshow", "#view-recipes", function() {
     createList(); // Update the recipe list on pageinit
+
+    // Handle click events on recipe list items
+    $("#recipe-list").on("click", "li", function() {
+        var index = $(this).index();
+        var recipe = RecipeArray[index];
+
+        // Perform a unique action for each recipe
+        switch (recipe.name) {
+            case "Cereal":
+                window.open("https://www.wikihow.com/Eat-a-Bowl-of-Cereal", "_blank");
+                break;
+            case "Rice w/ egg":
+                window.open("https://christieathome.com/blog/gyeran-bap-korean-egg-rice/", "_blank");
+                break;
+            case "PB&J":
+                window.open("https://www.wikihow.com/Make-a-Peanut-Butter-and-Jelly-Sandwich", "_blank");
+                break;
+            default:
+                // Handle default action or leave empty
+                break;
+        }
+    });
 });
 
 function createList() {
