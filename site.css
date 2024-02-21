@@ -23,3 +23,7 @@
 .delete-button:hover {
     background-color: #bebebe;
 }
+
+#oneName {
+    text-align: center;
+}

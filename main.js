@@ -44,7 +44,7 @@ $(document).on("pagebeforeshow", "#details", function(event) {
     RecipeArray = JSON.parse(localStorage.getItem("RecipeArray"));
     console.log(RecipeArray[localID - 1]);
 
-    document.getElementById("oneName").innerHTML = "Recipe Name: " + RecipeArray[localID - 1].name;
+    document.getElementById("oneName").innerHTML = RecipeArray[localID - 1].name + "<hr>";
     document.getElementById("oneCategory").innerHTML = "Category: " + RecipeArray[localID - 1].category;
     document.getElementById("oneTime").innerHTML = "Cook Time: " + RecipeArray[localID - 1].time;
     document.getElementById("oneIngredients").innerHTML = "Ingredients: " + RecipeArray[localID - 1].ingredients;
